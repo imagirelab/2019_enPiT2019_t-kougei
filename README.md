@@ -15,15 +15,14 @@
 
 ## プロダクトバックログ
 
-~~[Trello](https://trello.com/b/7lEj4F9z/enpit2019)<br>~~
+[Trello](https://trello.com/b/7lEj4F9z/enpit2019)<br>
 [Projects](https://github.com/imagirelab/enPiT2019_t-kougei/projects/1)へ
 
 ## ワーキングアグリーメント
 
-朝練に遅刻したら朝「マック」を全員におごり<br>
-夕方のコアタイムに遅刻したら「マック」おごり<br>
-欠席した場合「焼肉おごり」<br>
-（上記は嘉悦大のものです）
+コアタイムに遅刻したらお菓子寄付<br>
+コアタイムに無断欠席したらJoJo寄付<br>
+遅刻・欠席の連絡はenPiTのslackへ<br>
 
 ## メンバー
 
@@ -38,9 +37,8 @@
 
 ## 開発環境
 
-[Python 3](https://www.python.org/)<br>
-[Flask](https://a2c.bitbucket.io/flask/)<br>
-（上記は嘉悦大のものです）
+- [Unity](https://www.unity3d.com/)<br>
+- Android
 
 ## 実行ページ
 [heroku](https://bonbeewalker.herokuapp.com/)
