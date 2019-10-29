@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
+    public float limit = 10;
     float seconds;
+    public delegate void FireMethod();
+    public FireMethod effect;
 
     void Update()
     {
-
         seconds += Time.deltaTime;
 
         if(Input.GetKeyDown(KeyCode.Return))
@@ -17,12 +19,19 @@ public class TimeController : MonoBehaviour
             Debug.Log("時間をリセットします");
         }
 
-        if (seconds >= 10)
+        if (seconds >= limit)
         {
             seconds = 0;
-            Debug.Log("10秒間何もアクションされませんでした");
+            Debug.Log(limit + "秒間何もアクションされませんでした");
+            effect();
         }
     }
+
+    public void ResetTimer()
+    {
+        seconds = 0;
+    }
+
 }
 
 
