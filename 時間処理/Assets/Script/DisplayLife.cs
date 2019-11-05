@@ -7,7 +7,6 @@ public class DisplayLife : MonoBehaviour
 {
     public InputManager inputManager;
     public Text lifeText;
-    private int playerLife;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +17,6 @@ public class DisplayLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerLife = inputManager.StartLife;
-        lifeText.text = "LIFE : " + playerLife.ToString();
-
-        if(Input.GetKey(KeyCode.DownArrow))
-        {
-            playerLife -= 1;
-        }
+        lifeText.text = "LIFE : " + inputManager.StartLife.ToString();
     }
 }
