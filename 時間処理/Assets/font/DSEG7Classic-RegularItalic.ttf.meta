@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11661cbf74717944f9ac8594a0bfe307
+guid: d7da51937dda0a64ab9efb427a5d8289
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -11,7 +11,8 @@ TrueTypeFontImporter:
   fontName: DSEG7 Classic
   fontNames:
   - DSEG7 Classic
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 11661cbf74717944f9ac8594a0bfe307, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

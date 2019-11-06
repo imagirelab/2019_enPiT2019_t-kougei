@@ -5,22 +5,52 @@ using UnityEngine.UI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public Text timerText;
+    //テキストに表示
+    public Text scoreText = null;
+    //ライフの初期値
+    float life = 8000;
+    //仮ダメージ
+    float damage = 2000;
+    //間隔の速さ
+    float interval = 1;
 
-    public float totalTime;
-    int seconds;
-    // Start is called before the first frame update
     void Start()
     {
-        
+        //ToStringでString型にしてテキストに表示
+        scoreText.text = life.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    //押したらライフが減少する
+    public void OnDegScore()
     {
-        totalTime -= Time.deltaTime;
-        seconds = (int)totalTime;
-        timerText.text = seconds.ToString();
+        //ダメージ 1fすすめる
+        StartCoroutine(ScoreAnimation(damage, interval));
+    }
 
+    // ライフをアニメーションさせる
+    IEnumerator ScoreAnimation(float DegScore, float time)
+    {
+        //前回のライフ
+        float befor = life;
+        //今回のライフ
+        float after = life - DegScore;
+        //得点加算
+        life -= DegScore;
+        //0fを経過時間にする
+        float elapsedTime = 0.0f;
+
+        //ライフが０になるまでループさせる
+        while (elapsedTime < time)
+        {
+            float rate = elapsedTime / time;
+            // テキストの更新
+            scoreText.text = (befor + (after - befor) * rate).ToString("f0");
+
+            elapsedTime += Time.deltaTime;
+            // 0.01秒待つ
+            yield return new WaitForSeconds(0.01f);
+        }
+        // 最終的な着地のスコア
+        scoreText.text = after.ToString();
     }
 }
