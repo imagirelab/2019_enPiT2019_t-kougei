@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class mic_debug : MonoBehaviour
 {
-    private TextMesh text;
+    public TextMesh text;
 
     // Start is called before the first frame update
     void Start()
