@@ -6,17 +6,25 @@ using UnityEngine.UI;
 public class DisplayLife : MonoBehaviour
 {
     public InputManager inputManager;
+
+    public float playerLife;
+    static DisplayLife instance;
+
     public Text lifeText;
 
-    // Start is called before the first frame update
-    void Start()
+    public static DisplayLife Instance
     {
-
+        get { return instance; }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        lifeText.text = "LIFE : " + inputManager.StartLife.ToString();
+        instance = this;
+    }
+
+    public void changeLife()
+    {
+        playerLife = inputManager.startLife;
+        lifeText.text = playerLife.ToString();
     }
 }
