@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class InputManager : MonoBehaviour
 {
     InputField inputField;
-    private int startLife;
+    public float  startLife = 8000;
 
-    public int StartLife
+    public float StartLife
     {
         get { return this.startLife; }
         private set { this.startLife = value; }
@@ -27,7 +27,7 @@ public class InputManager : MonoBehaviour
 
         string inputValue = inputField.text;
 
-        if (int.TryParse(inputValue, out startLife))
+        if (float.TryParse(inputValue, out startLife))
         {
 
         }
