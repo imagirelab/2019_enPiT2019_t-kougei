@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SripDamage : MonoBehaviour
+public class Player2SripDamage : MonoBehaviour
 {
     //テキストに表示
     public Text scoreText = null;
@@ -45,14 +45,14 @@ public class SripDamage : MonoBehaviour
         {
             float rate = elapsedTime / time;
             // テキストの更新
-            scoreText.text = (DisplayLife.Instance.playerLife - DegScore * rate).ToString("f0");
+            scoreText.text = (Player2DisplayLife.Instance.playerLife - DegScore * rate).ToString("f0");
 
             elapsedTime += Time.deltaTime;
             // 0.01秒待つ
             yield return new WaitForSeconds(0.01f);
         }
         // 最終的な着地のスコア
-        DisplayLife.Instance.playerLife -= DegScore;
-        scoreText.text = DisplayLife.Instance.playerLife.ToString();
+        Player2DisplayLife.Instance.playerLife -= DegScore;
+        scoreText.text = Player2DisplayLife.Instance.playerLife.ToString();
     }
 }

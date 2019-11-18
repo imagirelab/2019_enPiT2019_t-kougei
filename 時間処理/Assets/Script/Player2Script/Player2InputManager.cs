@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InputManager : MonoBehaviour
+public class Player2InputManager : MonoBehaviour
 {
     InputField inputField;
-    public float  startLife = 8000;
+    public float startLife = 8000;
 
     public float StartLife
     {
