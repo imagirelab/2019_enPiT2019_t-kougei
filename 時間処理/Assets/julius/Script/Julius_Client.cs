@@ -56,6 +56,8 @@ public class Julius_Client : MonoBehaviour {
 	private Thread julius_thread;
 
     mic_debug text;
+    string before_result;
+    bool chenged = false;
 	
 	//-------------------------------------------------------------------------------------
 
@@ -210,6 +212,13 @@ public class Julius_Client : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+        if(before_result!=Result)
+        {
+            chenged = true;
+            before_result = Result;
+        }
+
 		//結果を常に受け取る
 		if (run) {
 			if (connect) {
@@ -257,4 +266,12 @@ public class Julius_Client : MonoBehaviour {
 		}
 	}
 	//-------------------------------------------------------------
+
+    public string GetResult()
+    {
+        string ret = "";
+        ret = Result;
+
+        return chenged ? ret : "";
+    }
 }

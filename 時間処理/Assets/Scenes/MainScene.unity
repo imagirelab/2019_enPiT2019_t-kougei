@@ -607,6 +607,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &655126048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bf300a02bcddb374b9d4af5795dc09b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 837870315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &655126050 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: bf300a02bcddb374b9d4af5795dc09b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 837870315}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655126048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1a3bfb894f0d94b956ee58cc1a2179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &655126051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655126048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136ab79dfaa1fc74695daa654e2b43b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  julius: {fileID: 655126050}
+  right_pl: {fileID: 1792587380}
+  left_pl: {fileID: 1902377647}
 --- !u!1001 &837870315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -986,7 +1019,6 @@ GameObject:
   - component: {fileID: 1165248474}
   - component: {fileID: 1165248473}
   - component: {fileID: 1165248472}
-  - component: {fileID: 1165248471}
   m_Layer: 5
   m_Name: Player1LifeDegButton
   m_TagString: Untagged
@@ -1014,19 +1046,6 @@ RectTransform:
   m_AnchoredPosition: {x: -209, y: -154}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1165248471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165248469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1100b62ba3539e4abe4476080979cc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 1902377648}
 --- !u!114 &1165248472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,17 +1086,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1165248471}
-        m_MethodName: OnDegScore
-        m_Mode: 1
+      - m_Target: {fileID: 1902377647}
+        m_MethodName: Damage
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2000
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1165248473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,7 +1744,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1792587380}
+      - m_Target: {fileID: 0}
         m_MethodName: changeLife
         m_Mode: 1
         m_Arguments:
@@ -2077,12 +2096,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1792587378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd1beb5bde76e7498637097c63cbc30, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bbecd9b409828841b4b5132f2b59c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputManager: {fileID: 1202542798}
-  playerLife: 8000
-  lifeText: {fileID: 1792587382}
+  text: {fileID: 1792587382}
+  life: 8000
 --- !u!114 &1792587381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,7 +2172,6 @@ GameObject:
   - component: {fileID: 1854913111}
   - component: {fileID: 1854913110}
   - component: {fileID: 1854913109}
-  - component: {fileID: 1854913108}
   m_Layer: 5
   m_Name: 'Player2LifeDegButton '
   m_TagString: Untagged
@@ -2182,19 +2199,6 @@ RectTransform:
   m_AnchoredPosition: {x: 203, y: -154}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1854913108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854913106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84da372e01eda3347a9e260ed584df22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 1792587382}
 --- !u!114 &1854913109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,13 +2239,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1854913108}
-        m_MethodName: OnDegScore
-        m_Mode: 1
+      - m_Target: {fileID: 1792587380}
+        m_MethodName: Damage
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2000
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2310,12 +2314,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1902377646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9f3b0d3d4640741b3f7488d700d879, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bbecd9b409828841b4b5132f2b59c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputManager: {fileID: 1763621653}
-  playerLife: 8000
-  lifeText: {fileID: 1902377648}
+  text: {fileID: 1902377648}
+  life: 8000
 --- !u!114 &1902377648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2484,7 +2487,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1902377647}
+      - m_Target: {fileID: 0}
         m_MethodName: changeLife
         m_Mode: 1
         m_Arguments:
