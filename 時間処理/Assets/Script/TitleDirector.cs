@@ -14,6 +14,6 @@ public class TitleDirector: MonoBehaviour
 
     void start_game()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainScene");
     }
 }
