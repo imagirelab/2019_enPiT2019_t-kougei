@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class LifePoint : MonoBehaviour
 {
+    public Player1InputManager inputManager;
+
     public Text text;
     
     public int life = 8000;
     int before_life;
-    int damage = 0;
+    int damage = 2000;
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +34,14 @@ public class LifePoint : MonoBehaviour
 
     public void Damage(int amount)
     {
-        damage += amount;
+        damage = amount;
         before_life = life;
         isDamage = true;
+    }
+
+    public void ChangeLife()
+    {
+        life = (int)inputManager.startLife;
+        text.text = life.ToString();
     }
 }
