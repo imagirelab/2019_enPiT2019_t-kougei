@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player1DisplayLife : MonoBehaviour
+public class PlayerDisplayLife : MonoBehaviour
 {
-    public Player1InputManager inputManager;
+    public StartLifeController inputManager;
 
     public float playerLife;
-    static Player1DisplayLife instance;
+    static PlayerDisplayLife instance;
 
     public Text lifeText;
 
-    public static Player1DisplayLife Instance
+    public static PlayerDisplayLife Instance
     {
         get { return instance; }
     }

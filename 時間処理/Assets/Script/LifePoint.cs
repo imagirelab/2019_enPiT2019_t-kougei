@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LifePoint : MonoBehaviour
 {
-    public Player1InputManager inputManager;
+    public StartLifeController inputManager;
 
     public Text text;
     
