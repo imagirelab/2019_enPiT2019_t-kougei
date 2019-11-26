@@ -7,10 +7,10 @@ public class VolumeChecker : MonoBehaviour
     private readonly int SampleNum = (2 << 9); // サンプリング数は2のN乗(N=5-12)
     [SerializeField, Range(0f, 1000f)] float m_gain = 200f; // 倍率
     AudioSource m_source;
-    public AudioClip GaysVoice;
+    public AudioClip [] GaysVoice;
     float[] currentValues;
 
-
+    int rand;
 
     TimeController TimeLimiter;
 
@@ -53,7 +53,8 @@ public class VolumeChecker : MonoBehaviour
 
     void LimitOver()
     {
-        Debug.Log("Test");
-        m_source.PlayOneShot(GaysVoice);
+        rand = UnityEngine.Random.Range(0, 4);
+        Debug.Log("Gaysvoice");
+        m_source.PlayOneShot(GaysVoice[rand]);
     }
 }
