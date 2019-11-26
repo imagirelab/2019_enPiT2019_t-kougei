@@ -7,16 +7,13 @@ public class VolumeChecker : MonoBehaviour
     private readonly int SampleNum = (2 << 9); // サンプリング数は2のN乗(N=5-12)
     [SerializeField, Range(0f, 1000f)] float m_gain = 200f; // 倍率
     AudioSource m_source;
-    public AudioClip [] GaysVoice;
+    GayaSystem gaya;
     float[] currentValues;
-
-    int rand;
-
-    TimeController TimeLimiter;
 
     // Use this for initialization
     void Start()
     {
+        gaya = GetComponentInChildren<GayaSystem>();
         m_source = GetComponent<AudioSource>();
         currentValues = new float[SampleNum];
         if ((m_source != null) && (Microphone.devices.Length > 0)) // オーディオソースとマイクがある
@@ -31,10 +28,6 @@ public class VolumeChecker : MonoBehaviour
             Microphone.GetPosition(null);
             m_source.Play();
         }
-
-        TimeLimiter = gameObject.AddComponent<TimeController>();
-        TimeLimiter.limit = 7;
-        TimeLimiter.effect = LimitOver;
     }
 
     // Update is called once per frame
@@ -48,13 +41,12 @@ public class VolumeChecker : MonoBehaviour
         }
         // データ数で割ったものに倍率をかけて音量とする
         float volumeRate = Mathf.Clamp01(sum * m_gain / (float)currentValues.Length);
-        //Debug.Log(volumeRate);
-    }
+        Debug.Log(volumeRate);
 
-    void LimitOver()
-    {
-        rand = UnityEngine.Random.Range(0, 4);
-        Debug.Log("Gaysvoice");
-        m_source.PlayOneShot(GaysVoice[rand]);
+        if(volumeRate>=0.05f)
+        {
+            gaya.TimerReset();
+        }
     }
+    
 }
