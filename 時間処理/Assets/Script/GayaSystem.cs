@@ -6,16 +6,19 @@ public class GayaSystem : MonoBehaviour
 {
     TimeController TimeLimiter;
 
-    private AudioSource sound01;
+    private AudioSource Gays;
 
     // Start is called before the first frame update
     void Start()
     {
-        TimeLimiter = gameObject.AddComponent<TimeController>();
-        TimeLimiter.limit = 6;
-        TimeLimiter.effect = hogehoge;
         //AudioSourceコンポーネントを取得し、変数に格納
-        sound01 = GetComponent<AudioSource>();
+        Gays = GetComponent<AudioSource>();
+
+        TimeLimiter = gameObject.AddComponent<TimeController>();
+        TimeLimiter.limit = 10;
+        TimeLimiter.effect = hogehoge;
+        
+        
     }
 
     // Update is called once per frame
@@ -27,6 +30,6 @@ public class GayaSystem : MonoBehaviour
     void hogehoge()
     {
         Debug.Log("hogehoge");
-        sound01.PlayOneShot(sound01.clip);
+        Gays.PlayOneShot(Gays.clip);
     }
 }
