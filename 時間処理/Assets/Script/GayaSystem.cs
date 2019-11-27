@@ -23,7 +23,7 @@ public class GayaSystem : MonoBehaviour
 
     void PlayGaya()
     {
-        Gays.PlayOneShot(gaya[Random.Range(0,gaya.Count-1)]);
+        Gays.PlayOneShot(gaya[Random.Range(0,gaya.Count)]);
     }
 
     public void TimerReset()

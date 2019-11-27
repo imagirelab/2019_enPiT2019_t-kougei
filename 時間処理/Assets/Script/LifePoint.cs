@@ -9,39 +9,31 @@ public class LifePoint : MonoBehaviour
 
     public Text text;
     
-    public int life = 8000;
-    int before_life;
-    int damage = 2000;
+    public int initial_life = 8000;
+    int life;
+    int view_life; //表示用
 
     // Start is called before the first frame update
     void Start()
     {
-        before_life = life;
+        life = initial_life;
+        view_life = life;
+        text.text = view_life.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isDamage)
+        if (life < view_life)
         {
-            life -= 25;
-            text.text = life.ToString();
-            isDamage = !(before_life-damage == life);
+            view_life -= 25;
+            if (view_life < life) view_life = life;// 引きすぎたら戻す
+            text.text = view_life.ToString();
         }
     }
 
-    bool isDamage { get; set; }
-
     public void Damage(int amount)
     {
-        damage = amount;
-        before_life = life;
-        isDamage = true;
-    }
-
-    public void ChangeLife()
-    {
-        life = (int)inputManager.startLife;
-        text.text = life.ToString();
+        life -= amount;
     }
 }

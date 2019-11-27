@@ -24,13 +24,7 @@ public class StartLifeController : MonoBehaviour
     // Update is called once per frame
     public void InputLogger()
     {
-
-        string inputValue = inputField.text;
-
-        if (float.TryParse(inputValue, out startLife))
-        {
-
-        }
+        float.TryParse(inputField.text, out startLife);
 
         //startLife = int.Parse(inputValue);
         InitInputField();

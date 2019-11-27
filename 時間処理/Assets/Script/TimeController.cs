@@ -13,12 +13,6 @@ public class TimeController : MonoBehaviour
     {
         seconds += Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            Debug.Log("Enterが押されました");
-            Debug.Log("時間をリセットします");
-        }
-
         if (seconds >= limit)
         {
             seconds = 0;
