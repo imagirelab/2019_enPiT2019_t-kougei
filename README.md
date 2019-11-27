@@ -41,10 +41,6 @@
 - [Unity](https://www.unity3d.com/)<br>
 - Android
 
-## 実行ページ
-[heroku](https://bonbeewalker.herokuapp.com/)
-（上記は嘉悦大のものです）
-
 # リーンキャンバス
 ![lean canvas](./canvas.jpg)
 
