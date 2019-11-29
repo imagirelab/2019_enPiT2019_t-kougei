@@ -45,4 +45,9 @@ public class LifePoint : MonoBehaviour
     {
         life = LP;
     }
+
+    public int getLP()
+    {
+        return life;
+    }
 }
