@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartLifeController : MonoBehaviour
+public class LifeReset : MonoBehaviour
 {
+    public LifePoint LPtext;
     InputField inputField;
-    public float  startLife = 8000;
-
-    public float StartLife
-    {
-        get { return this.startLife; }
-        private set { this.startLife = value; }
-    }
+    public int NewLP = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -22,23 +17,26 @@ public class StartLifeController : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void InputLogger()
+    public void SetLife()
     {
-        float.TryParse(inputField.text, out startLife);
+        if (int.TryParse(inputField.text, out NewLP))
+        {
+            LPtext.SetLP(NewLP);
+        }
+        else
+        {
+            Debug.Log("int.TryParse(inputField.text, out NewLP) is failed!");
+        }
 
-        //startLife = int.Parse(inputValue);
         InitInputField();
     }
 
     void InitInputField()
     {
-
         // 値をリセット
         inputField.text = "";
 
         // フォーカス
         inputField.ActivateInputField();
     }
-
-
 }

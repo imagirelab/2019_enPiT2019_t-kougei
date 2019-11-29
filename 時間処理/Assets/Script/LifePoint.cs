@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class LifePoint : MonoBehaviour
 {
-    public StartLifeController inputManager;
-
     public Text text;
     
     public int initial_life = 8000;
@@ -35,5 +33,10 @@ public class LifePoint : MonoBehaviour
     public void Damage(int amount)
     {
         life -= amount;
+    }
+
+    public void SetLP(int LP)
+    {
+        life = LP;
     }
 }
