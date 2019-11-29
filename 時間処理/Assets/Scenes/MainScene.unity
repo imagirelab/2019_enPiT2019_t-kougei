@@ -971,9 +971,12 @@ MonoBehaviour:
   normal:
   - {fileID: 8300000, guid: 993d37dbe207a6043a143d1578d94f18, type: 3}
   - {fileID: 8300000, guid: 2ce5fb4ac6121674c91dc4ae82bbf169, type: 3}
+  - {fileID: 8300000, guid: 66566e68c98ac094595edd579a5d1029, type: 3}
   panic:
   - {fileID: 8300000, guid: 9ece410c50c22b1469812df675fcf881, type: 3}
   - {fileID: 8300000, guid: 07a307af24d93c443b24dd3a6cba8f63, type: 3}
+  - {fileID: 8300000, guid: 7af9345a1b9054240a578015223c45a4, type: 3}
+  - {fileID: 8300000, guid: 192382ce4d047c4419d23f6d6c90b975, type: 3}
 --- !u!4 &255715320
 Transform:
   m_ObjectHideFlags: 0
