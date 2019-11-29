@@ -28,6 +28,12 @@ public class LifePoint : MonoBehaviour
             if (view_life < life) view_life = life;// 引きすぎたら戻す
             text.text = view_life.ToString();
         }
+        else if(life>view_life)
+        {
+            view_life += 25;
+            if (view_life > life) view_life = life;// 足しすぎたら戻す
+            text.text = view_life.ToString();
+        }
     }
 
     public void Damage(int amount)
