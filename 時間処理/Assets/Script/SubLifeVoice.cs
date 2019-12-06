@@ -19,7 +19,7 @@ public class SubLifeVoice : MonoBehaviour
     {
         if(julius.GetResult()==("���C�t�B"))
         {
-            right_pl.Damage(2000);
+            right_pl.Damage(8000);
         }
     }
 }

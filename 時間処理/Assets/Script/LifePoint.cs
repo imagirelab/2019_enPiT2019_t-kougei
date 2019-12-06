@@ -17,6 +17,7 @@ public class LifePoint : MonoBehaviour
         life = initial_life;
         view_life = life;
         text.text = view_life.ToString();
+        
     }
 
     // Update is called once per frame
@@ -34,6 +35,11 @@ public class LifePoint : MonoBehaviour
             if (view_life > life) view_life = life;// 足しすぎたら戻す
             text.text = view_life.ToString();
         }
+        if(view_life == 0)
+        {
+            Debug.Log("ライフが0になりました");
+        }
+        
     }
 
     public void Damage(int amount)
@@ -43,11 +49,16 @@ public class LifePoint : MonoBehaviour
 
     public void SetLP(int LP)
     {
-        life = LP;
+        life = LP;   
     }
 
     public int getLP()
     {
         return life;
+    }
+
+    public void zeroLife()
+    { 
+            text.color = new Color(132f / 255f, 68f / 255f, 205f / 255f);//0になったら
     }
 }
