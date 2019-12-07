@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class LifePoint : MonoBehaviour
 {
+    public LifeDifferenceJudgment LDJ;
     public Text text;
     
     public int initial_life = 8000;
-    int life;
+    public int life;
     int view_life; //表示用
 
     // Start is called before the first frame update
@@ -38,6 +39,7 @@ public class LifePoint : MonoBehaviour
         if(view_life == 0)
         {
             Debug.Log("ライフが0になりました");
+            LDJ.LifeDiffJudge();
         }
         
     }
@@ -55,10 +57,5 @@ public class LifePoint : MonoBehaviour
     public int getLP()
     {
         return life;
-    }
-
-    public void zeroLife()
-    { 
-            text.color = new Color(132f / 255f, 68f / 255f, 205f / 255f);//0になったら
     }
 }
