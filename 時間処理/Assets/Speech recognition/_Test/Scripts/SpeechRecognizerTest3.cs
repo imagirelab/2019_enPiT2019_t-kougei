@@ -6,16 +6,19 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using FantomLib;
+using System.Text.RegularExpressions;
 
 //Speech Recognizer demo using controllers and localize
 //音声認識でコントローラ（～Controller）とローカライズを利用したデモ
 public class SpeechRecognizerTest3 : MonoBehaviour {
 
+    public LifePoint LP;
     public Text displayText;
     public Toggle webSearchToggle;
     public Button recongizerButton;
     public Animator circleAnimator;
     public Animator voiceAnimator;
+    string str;
 
 
     //Message when recognizer start.
@@ -163,6 +166,16 @@ public class SpeechRecognizerTest3 : MonoBehaviour {
     //Toggle button (webSearchToggle) to switch WebSearch.
     public void SwitchWebSearch(string[] words)
     {
+        for(int i = 0; i < words.Length; i++)
+        {
+            str = Regex.Replace(words[i], @"[^0-9]", "");
+        }
+
+        if (int.TryParse(str, out int damage))
+        {
+            LP.Damage(damage);
+        }
+
         if (webSearchToggle != null && webSearchToggle.isOn)
         {
             if (words.Length > 1)

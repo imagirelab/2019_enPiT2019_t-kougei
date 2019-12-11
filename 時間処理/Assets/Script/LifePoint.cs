@@ -11,6 +11,7 @@ public class LifePoint : MonoBehaviour
     public int initial_life = 8000;
     public int life;
     int view_life; //表示用
+    bool flag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +37,11 @@ public class LifePoint : MonoBehaviour
             if (view_life > life) view_life = life;// 足しすぎたら戻す
             text.text = view_life.ToString();
         }
-        if(view_life == 0)
+        if(view_life == 0 && !flag)
         {
             Debug.Log("ライフが0になりました");
             LDJ.LifeDiffJudge();
+            flag = true;
         }
         
     }
