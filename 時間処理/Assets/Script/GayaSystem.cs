@@ -19,11 +19,11 @@ public class GayaSystem : MonoBehaviour
         Gays = GetComponent<AudioSource>();
 
         TimeLimiter = gameObject.AddComponent<TimeController>();
-        TimeLimiter.limit = 10;
-        TimeLimiter.effect = PlayGaya;
+        //TimeLimiter.limit = 10;
+        //TimeLimiter.effect = PlayGaya;
     }
 
-    void PlayGaya()
+    public void PlayGaya()
     {
         gaya = selector.SelectVoiceList(PL1.getLP(), PL2.getLP());
         Gays.PlayOneShot(gaya[Random.Range(0,gaya.Count)]);

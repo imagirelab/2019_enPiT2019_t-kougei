@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 public class SpeechRecognizerTest3 : MonoBehaviour {
 
     public LifePoint LP;
+    public DamageVoice DV;
     public Text displayText;
     public Toggle webSearchToggle;
     public Button recongizerButton;
@@ -174,6 +175,7 @@ public class SpeechRecognizerTest3 : MonoBehaviour {
         if (int.TryParse(str, out int damage))
         {
             LP.Damage(damage);
+            DV.DamageVoiceSelector(damage);
         }
 
         if (webSearchToggle != null && webSearchToggle.isOn)
