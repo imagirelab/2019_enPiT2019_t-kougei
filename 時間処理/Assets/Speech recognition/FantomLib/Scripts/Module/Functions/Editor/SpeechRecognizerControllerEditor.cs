@@ -15,6 +15,8 @@ namespace FantomLib
         GUIContent saveSettingLabel = new GUIContent("Save Setting");
         SerializedProperty saveKey;
         GUIContent saveKeyLabel = new GUIContent("Save Key");
+        SerializedProperty gaya;
+        GUIContent gayaLabel = new GUIContent("GayaSystem");
 
         SerializedProperty OnReady;
         SerializedProperty OnBegin;
@@ -26,6 +28,7 @@ namespace FantomLib
             locale = serializedObject.FindProperty("locale");
             saveSetting = serializedObject.FindProperty("saveSetting");
             saveKey = serializedObject.FindProperty("saveKey");
+            gaya = serializedObject.FindProperty("gaya");
             OnReady = serializedObject.FindProperty("OnReady");
             OnBegin = serializedObject.FindProperty("OnBegin");
             OnResult = serializedObject.FindProperty("OnResult");
@@ -56,6 +59,7 @@ namespace FantomLib
 
             EditorGUILayout.PropertyField(saveSetting, saveSettingLabel, true);
             EditorGUILayout.PropertyField(saveKey, saveKeyLabel, true);
+            EditorGUILayout.PropertyField(gaya, true);
 
             EditorGUILayout.PropertyField(OnReady, true);
             EditorGUILayout.PropertyField(OnBegin, true);

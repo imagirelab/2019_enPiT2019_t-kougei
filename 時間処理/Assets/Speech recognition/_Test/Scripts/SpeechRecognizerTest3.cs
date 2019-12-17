@@ -79,6 +79,8 @@ public class SpeechRecognizerTest3 : MonoBehaviour {
 
     // Use this for initialization
     private void Start () {
+
+        OnStartRecognizer();
         //if (speechRecognizerDialog != null)
         //{
         //    DisplayText(displayText.text == "" ? "" : "\n", true); 
@@ -167,6 +169,7 @@ public class SpeechRecognizerTest3 : MonoBehaviour {
     //Toggle button (webSearchToggle) to switch WebSearch.
     public void SwitchWebSearch(string[] words)
     {
+  
         for(int i = 0; i < words.Length; i++)
         {
             str = Regex.Replace(words[i], @"[^0-9]", "");

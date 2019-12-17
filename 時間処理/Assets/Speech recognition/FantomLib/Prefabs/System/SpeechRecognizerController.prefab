@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locale: 
-  saveSetting: 0
+  gaya: {fileID: 0}
+  saveSetting: 1
   saveKey: 
   OnReady:
     m_PersistentCalls:
