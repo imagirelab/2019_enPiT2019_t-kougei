@@ -7,6 +7,8 @@ public class LifePoint : MonoBehaviour
 {
     public LifeDifferenceJudgment LDJ;
     public Text text;
+
+    public DamageVoice DV;
     
     public int initial_life = 8000;
     public int life;
@@ -31,6 +33,7 @@ public class LifePoint : MonoBehaviour
             if (view_life < life) view_life = life;// 引きすぎたら戻す
             text.text = view_life.ToString();
         }
+
         else if(life>view_life)
         {
             view_life += 25;
@@ -49,6 +52,7 @@ public class LifePoint : MonoBehaviour
     public void Damage(int amount)
     {
         life -= amount;
+        DV.DamageVoiceSelector(amount);
     }
 
     public void SetLP(int LP)
