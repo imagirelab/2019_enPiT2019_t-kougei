@@ -1,36 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class GayaSystem : MonoBehaviour
+namespace FantomLib
 {
-    public LifePoint PL1;
-    public LifePoint PL2;
-    public VoiceSelector selector;
-
-    TimeController TimeLimiter;
-    AudioSource Gays;
-    List<AudioClip> gaya;
-
-    // Start is called before the first frame update
-    void Start()
+    public class GayaSystem : MonoBehaviour
     {
-        //AudioSourceコンポーネントを取得し、変数に格納
-        Gays = GetComponent<AudioSource>();
+        public LifePoint PL1;
+        public LifePoint PL2;
+        public VoiceSelector selector;
 
-        TimeLimiter = gameObject.AddComponent<TimeController>();
-        //TimeLimiter.limit = 10;
-        //TimeLimiter.effect = PlayGaya;
-    }
+        TimeController TimeLimiter;
+        AudioSource Gays;
+        List<AudioClip> gaya;
 
-    public void PlayGaya()
-    {
-        gaya = selector.SelectVoiceList(PL1.getLP(), PL2.getLP());
-        Gays.PlayOneShot(gaya[Random.Range(0,gaya.Count)]);
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            //AudioSourceコンポーネントを取得し、変数に格納
+            Gays = GetComponent<AudioSource>();
 
-    public void TimerReset()
-    {
-        TimeLimiter.ResetTimer();
+            //TimeLimiter = gameObject.AddComponent<TimeController>();
+            //TimeLimiter.limit = 10;
+            //TimeLimiter.effect = PlayGaya;
+        }
+
+        public void PlayGaya()
+        {
+            gaya = selector.SelectVoiceList(PL1.getLP(), PL2.getLP());
+            Gays.PlayOneShot(gaya[Random.Range(0, gaya.Count)]);
+        }
+
+        public void TimerReset()
+        {
+            TimeLimiter.ResetTimer();
+        }
     }
 }

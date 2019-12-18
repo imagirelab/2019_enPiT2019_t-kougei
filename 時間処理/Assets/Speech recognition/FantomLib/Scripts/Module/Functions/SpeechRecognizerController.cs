@@ -21,9 +21,10 @@ namespace FantomLib
     {
         //Inspector Settings
         [SerializeField] private string locale = "";        //Locale (e.g. "en", "en-US", "ja", "ja-JP") / empty = system default
+        [SerializeField] GayaSystem gaya;
 
         //Save PlayerPrefs Settings
-        public bool saveSetting = false;                    //Whether to save the settings (Also local value is always overwritten).
+        public bool saveSetting = false;          //Whether to save the settings (Also local value is always overwritten).
         [SerializeField] private string saveKey = "";       //When specifying the PlayerPrefs key for settings.
 
         //Callbacks
@@ -143,6 +144,8 @@ namespace FantomLib
 
         private void Start()
         {
+            StartRecognizer();
+
             if (!IsSupportedRecognizer)
             {
                 if (OnError != null)
@@ -165,19 +168,24 @@ namespace FantomLib
         //Start Speech Recognizer
         public void StartRecognizer()
         {
-            if (!IsSupportedRecognizer || !IsPermissionGranted)
-                return;
+            //if (!IsSupportedRecognizer || !IsPermissionGranted)
+            //    return;
 
             canceled = false;
 #if UNITY_EDITOR
             Debug.Log("SpeechRecognizerController.StartRecognizer called");
 #elif UNITY_ANDROID
             if (string.IsNullOrEmpty(locale))
+            {
                 AndroidPlugin.StartSpeechRecognizer(
-                    gameObject.name, "ReceiveResult", "ReceiveError", "ReceiveReady", "ReceiveBegin");
+                  gameObject.name, "ReceiveResult", "ReceiveError", "ReceiveReady", "ReceiveBegin");   
+            }
+              
             else 
+            {
                 AndroidPlugin.StartSpeechRecognizer(locale,
                     gameObject.name, "ReceiveResult", "ReceiveError", "ReceiveReady", "ReceiveBegin");
+            }
 #endif
         }
 
@@ -218,6 +226,9 @@ namespace FantomLib
         //Receive the error when speech recognition fail.
         private void ReceiveError(string message)
         {
+            if (message == "ERROR_SPEECH_TIMEOUT")
+                gaya.PlayGaya();
+
             if (canceled)
                 return;
 
@@ -233,7 +244,7 @@ namespace FantomLib
 #if UNITY_EDITOR
             Debug.Log("SpeechRecognizerController.StopRecognizer called");
 #elif UNITY_ANDROID
-            AndroidPlugin.ReleaseSpeechRecognizer();
+            AndroidPlugin.ReleaseSpeechRecognizer();   
 #endif
         }
     }
