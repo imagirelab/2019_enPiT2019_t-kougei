@@ -8,8 +8,9 @@ namespace FantomLib
         public LifePoint PL1;
         public LifePoint PL2;
         public VoiceSelector selector;
+        public VoiceActor actor;
 
-        TimeController TimeLimiter;
+        StopWatch TimeLimiter;
         AudioSource Gays;
         List<AudioClip> gaya;
 
@@ -27,7 +28,8 @@ namespace FantomLib
         public void PlayGaya()
         {
             gaya = selector.SelectVoiceList(PL1.getLP(), PL2.getLP());
-            Gays.PlayOneShot(gaya[Random.Range(0, gaya.Count)]);
+
+            actor.SpeakRequest(gaya[Random.Range(0, gaya.Count)]);
         }
 
         public void TimerReset()

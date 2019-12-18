@@ -5,7 +5,7 @@ using UnityEngine;
 public class Serifgg : MonoBehaviour
 {
 
-    TimeController TimeLimiter;
+    StopWatch TimeLimiter;
 
     public AudioClip Serif01;
     public AudioClip Serif02;
@@ -15,7 +15,7 @@ public class Serifgg : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TimeLimiter = gameObject.AddComponent<TimeController>();
+        TimeLimiter = gameObject.AddComponent<StopWatch>();
         TimeLimiter.limit = 6;
         TimeLimiter.effect = Serif;
         AudioContorole = gameObject.AddComponent<AudioSource>();
