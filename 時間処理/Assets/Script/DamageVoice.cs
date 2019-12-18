@@ -5,11 +5,11 @@ using UnityEngine;
 public class DamageVoice : MonoBehaviour
 {
     public AudioClip[] damageVoice;
-    AudioSource luncher;
+    VoiceActor actor;
 
     void Start()
     {
-        luncher = gameObject.AddComponent<AudioSource>();
+        actor = gameObject.GetComponent<VoiceActor>();
     }
 
     // Update is called once per frame
@@ -17,11 +17,11 @@ public class DamageVoice : MonoBehaviour
     {
         if (damage >= 4000)
         {
-            luncher.PlayOneShot(damageVoice[0]);
+            actor.SpeakRequest(damageVoice[0]);
         }
         else if(damage < 4000)
         {
-            luncher.PlayOneShot(damageVoice[1]);
+            actor.SpeakRequest(damageVoice[1]);
         }
     }
 }

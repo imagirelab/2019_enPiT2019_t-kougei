@@ -10,12 +10,12 @@ public class VoiceActor : MonoBehaviour
     bool isSpeaking = false;
     Stack<AudioClip> queue;
     AudioSource mouth;
-    TimeController timer;
+    StopWatch timer;
 
     void Start()
     {
         mouth = gameObject.GetComponent<AudioSource>();
-
+        timer = gameObject.AddComponent<StopWatch>();
         timer.ShatDown();
         timer.effect = Speak;
     }
@@ -43,7 +43,7 @@ public class VoiceActor : MonoBehaviour
         queue.Clear();
     }
 
-    //今のセリフの次にvoiceを喋ってくれます。fast=trueなら今のセリフを中断します
+    //今のセリフの次にvoiceを喋ってくれます。fast=trueなら今のセリフを中断します。未実装。
     public void MastSpeak(AudioClip voice, bool fast)
     {
 
@@ -66,7 +66,7 @@ public class VoiceActor : MonoBehaviour
         isSpeaking = true;
 
         //次の喋りのタイミングを設定する
-        timer.ResetTimer(next.length);
+        timer.ResetTimer(next.length + breath);
     }
 
 

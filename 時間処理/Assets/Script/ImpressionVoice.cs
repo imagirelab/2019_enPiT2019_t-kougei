@@ -5,31 +5,31 @@ using UnityEngine;
 public class ImpressionVoice : MonoBehaviour
 {
     public AudioClip[] impressionVoice;
-    AudioSource luncher;
+    VoiceActor actor;
 
     // Start is called before the first frame update
     void Start()
     {
-        luncher = gameObject.AddComponent<AudioSource>();
+        actor = gameObject.GetComponent<VoiceActor>();
     }
 
     public void Diff8000()
     {
-        luncher.PlayOneShot(impressionVoice[0]);
+        actor.SpeakRequest(impressionVoice[0]);
     }
 
     public void Diff6000()
     {
-        luncher.PlayOneShot(impressionVoice[1]);
+        actor.SpeakRequest(impressionVoice[1]);
     }
 
     public void Diff4000()
     {
-        luncher.PlayOneShot(impressionVoice[2]);
+        actor.SpeakRequest(impressionVoice[2]);
     }
 
     public void Diff2000()
     {
-        luncher.PlayOneShot(impressionVoice[3]);
+        actor.SpeakRequest(impressionVoice[3]);
     }
 }

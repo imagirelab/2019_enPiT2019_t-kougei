@@ -2,20 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeController : MonoBehaviour
+public class StopWatch : MonoBehaviour
 {
-    const float MIN_TIME_LIMIT = 0.1f;
-
-    public float limit = 0;
+    //使用される特殊な型の宣言
     public delegate void FireMethod();
-    public FireMethod effect = delegate () { };
 
+    //定数
+    const float MIN_TIME_LIMIT = 0.1f;
+    FireMethod NoEffect = delegate () { };
+
+    //設定する必要のある値
+    public float limit = MIN_TIME_LIMIT;
+    public FireMethod effect;
+    
+    //ステータス
     bool isActive = true;
     float seconds;
 
     void Start()
     {
         TimerErrorCheck();
+        effect = NoEffect;
     }
 
     void Update()
@@ -33,6 +40,7 @@ public class TimeController : MonoBehaviour
         }
     }
 
+    
     public void ResetTimer()
     {
         seconds = 0;
@@ -47,10 +55,12 @@ public class TimeController : MonoBehaviour
         limit = newlimit;
     }
 
+    //タイマーをしまいます。設定は保存されません。
     public void ShatDown()
     {
         seconds = 0;
         limit = MIN_TIME_LIMIT;
+        effect = NoEffect;
         isActive = false;
     }
 
@@ -64,6 +74,7 @@ public class TimeController : MonoBehaviour
         isActive = true;
     }
 
+    //制限時間が小さすぎるのは明らかに異常なので勝手に直します。
     bool TimerErrorCheck()
     {
         if(limit<MIN_TIME_LIMIT)
