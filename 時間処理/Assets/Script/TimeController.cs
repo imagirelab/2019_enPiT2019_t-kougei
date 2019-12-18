@@ -5,12 +5,16 @@ using UnityEngine;
 public class TimeController : MonoBehaviour
 {
     public float limit = 10;
-    float seconds;
     public delegate void FireMethod();
-    public FireMethod effect;
+    public FireMethod effect = delegate () { };
+
+    bool isActive = true;
+    float seconds;
 
     void Update()
     {
+        if (!isActive) return;
+
         seconds += Time.deltaTime;
 
         if (seconds >= limit)
@@ -26,21 +30,13 @@ public class TimeController : MonoBehaviour
         seconds = 0;
     }
 
+    public void Pause()
+    {
+        isActive = false;
+    }
+
+    public void Resume()
+    {
+        isActive = true;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
