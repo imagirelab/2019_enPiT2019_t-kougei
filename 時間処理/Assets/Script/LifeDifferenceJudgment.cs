@@ -19,7 +19,7 @@ public class LifeDifferenceJudgment : MonoBehaviour
         lifeDiff = Mathf.Abs(LP1.life - LP2.life);
         lifeDeffText.text = lifeDiff.ToString();
 
-        if(lifeDiff <= 8000 && lifeDiff > 6000 )
+        if(lifeDiff > 6000 )
         {
             impressionVoice.Diff8000();
         }

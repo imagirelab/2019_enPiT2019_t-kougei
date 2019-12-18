@@ -12,7 +12,8 @@ using System.Text.RegularExpressions;
 //音声認識でコントローラ（～Controller）とローカライズを利用したデモ
 public class SpeechRecognizerTest3 : MonoBehaviour {
 
-    public LifePoint LP;
+    public LifePoint LP1;
+    public LifePoint LP2;
     public DamageVoice DV;
     public Text displayText;
     public Toggle webSearchToggle;
@@ -20,6 +21,7 @@ public class SpeechRecognizerTest3 : MonoBehaviour {
     public Animator circleAnimator;
     public Animator voiceAnimator;
     string str;
+    string strNumber;
 
 
     //Message when recognizer start.
@@ -169,16 +171,37 @@ public class SpeechRecognizerTest3 : MonoBehaviour {
     //Toggle button (webSearchToggle) to switch WebSearch.
     public void SwitchWebSearch(string[] words)
     {
+        bool player1Flag = false;
+        bool player2Flag = false;
   
         for(int i = 0; i < words.Length; i++)
         {
-            str = Regex.Replace(words[i], @"[^0-9]", "");
+            if(words[i].Contains("Player 1"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("Player 1", "");
+            }
+            else if(words[i].Contains("Player 2"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("Player 2", "");
+            }
+
+            strNumber = Regex.Replace(str, @"[^0-9]", "");
         }
 
-        if (int.TryParse(str, out int damage))
+        if (int.TryParse(strNumber, out int damage))
         {
-            LP.Damage(damage);
-            DV.DamageVoiceSelector(damage);
+            if(player1Flag)
+            {
+                LP1.Damage(damage);
+                DV.DamageVoiceSelector(damage);
+            }
+            else if(player2Flag)
+            {
+                LP2.Damage(damage);
+                DV.DamageVoiceSelector(damage);
+            }
         }
 
         if (webSearchToggle != null && webSearchToggle.isOn)
