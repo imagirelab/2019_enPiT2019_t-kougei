@@ -8,6 +8,11 @@ public class VoiceActor : MonoBehaviour
     TimeController timer;
     AudioSource mouth;
 
+    void Start()
+    {
+        mouth = gameObject.GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if(queue.Count>0)

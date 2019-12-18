@@ -30,6 +30,12 @@ public class TimeController : MonoBehaviour
         seconds = 0;
     }
 
+    public void ResetTimer(float newlimit)
+    {
+        seconds = 0;
+        limit = newlimit;
+    }
+
     public void Pause()
     {
         isActive = false;
