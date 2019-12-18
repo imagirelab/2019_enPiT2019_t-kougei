@@ -40,7 +40,7 @@ public class LifePoint : MonoBehaviour
             if (view_life > life) view_life = life;// 足しすぎたら戻す
             text.text = view_life.ToString();
         }
-        if(view_life == 0 && !flag)
+        if(view_life <= 0 && !flag)
         {
             Debug.Log("ライフが0になりました");
             LDJ.LifeDiffJudge();
