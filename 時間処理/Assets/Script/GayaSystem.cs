@@ -19,7 +19,8 @@ namespace FantomLib
         {
             //AudioSourceコンポーネントを取得し、変数に格納
             Gays = GetComponent<AudioSource>();
-
+            selector = gameObject.GetComponent<VoiceSelector>();
+            actor = gameObject.GetComponent<VoiceActor>();
             //TimeLimiter = gameObject.AddComponent<TimeController>();
             //TimeLimiter.limit = 10;
             //TimeLimiter.effect = PlayGaya;

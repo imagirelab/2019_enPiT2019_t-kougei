@@ -8,7 +8,7 @@ public class VoiceActor : MonoBehaviour
     float breath = 0.1f;
 
     bool isSpeaking = false;
-    Stack<AudioClip> queue;
+    Stack<AudioClip> queue = new Stack<AudioClip>();
     AudioSource mouth;
     StopWatch timer;
 
@@ -61,6 +61,7 @@ public class VoiceActor : MonoBehaviour
         }
 
         //喋る
+        Debug.Log("speaking...");
         AudioClip next = queue.Pop();
         mouth.PlayOneShot(next);
         isSpeaking = true;
