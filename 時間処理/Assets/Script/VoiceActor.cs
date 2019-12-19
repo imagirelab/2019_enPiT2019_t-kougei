@@ -52,6 +52,8 @@ public class VoiceActor : MonoBehaviour
 
     void Speak()
     {
+        isSpeaking = false;
+
         //喋ることがないならなんもしない
         if(queue.Count==0)
         {
@@ -67,7 +69,7 @@ public class VoiceActor : MonoBehaviour
         isSpeaking = true;
 
         //次の喋りのタイミングを設定する
-        timer.ResetTimer(next.length + breath);
+        timer.ReUse(next.length + breath, Speak, true);
     }
 
 
