@@ -64,6 +64,14 @@ public class StopWatch : MonoBehaviour
         isActive = false;
     }
 
+    //シャットダウンしたタイマーを再度利用します。
+    public void ReUse(float Limit, FireMethod Effect, bool start = false)
+    {
+        limit = Limit;
+        effect = Effect;
+        isActive = start;
+    }
+
     public void Pause()
     {
         isActive = false;

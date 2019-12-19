@@ -69,7 +69,7 @@ public class VoiceActor : MonoBehaviour
         isSpeaking = true;
 
         //次の喋りのタイミングを設定する
-        timer.ResetTimer(next.length + breath);
+        timer.ReUse(next.length + breath, Speak, true);
     }
 
 
