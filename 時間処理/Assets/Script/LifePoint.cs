@@ -9,15 +9,18 @@ public class LifePoint : MonoBehaviour
     public Text text;
 
     public DamageVoice DV;
+    public AudioClip damageSE;
     
     public int initial_life = 8000;
     public int life;
     int view_life; //表示用
     bool flag = false;
+    AudioSource speaker;
 
     // Start is called before the first frame update
     void Start()
     {
+        speaker = gameObject.AddComponent<AudioSource>();
         life = initial_life;
         view_life = life;
         text.text = view_life.ToString();
@@ -53,6 +56,7 @@ public class LifePoint : MonoBehaviour
     {
         life -= amount;
         DV.DamageVoiceSelector(amount);
+        speaker.PlayOneShot(damageSE);
     }
 
     public void SetLP(int LP)

@@ -5762,6 +5762,7 @@ MonoBehaviour:
   LDJ: {fileID: 1108895976}
   text: {fileID: 1792587382}
   DV: {fileID: 765914287}
+  damageSE: {fileID: 8300000, guid: 12e7fd732f406534294fdf585b811018, type: 3}
   initial_life: 8000
   life: 0
 --- !u!114 &1792587381
@@ -6019,6 +6020,7 @@ MonoBehaviour:
   LDJ: {fileID: 1108895976}
   text: {fileID: 1902377648}
   DV: {fileID: 765914287}
+  damageSE: {fileID: 8300000, guid: 12e7fd732f406534294fdf585b811018, type: 3}
   initial_life: 8000
   life: 0
 --- !u!114 &1902377648
