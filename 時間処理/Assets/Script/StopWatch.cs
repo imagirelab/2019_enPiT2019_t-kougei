@@ -35,7 +35,7 @@ public class StopWatch : MonoBehaviour
         {
             TimerErrorCheck();
 
-            seconds = 0;
+            seconds -= limit;
             effect();
         }
     }

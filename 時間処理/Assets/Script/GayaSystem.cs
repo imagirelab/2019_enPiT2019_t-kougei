@@ -10,6 +10,7 @@ namespace FantomLib
         public VoiceSelector selector;
         public VoiceActor actor;
 
+        public float VoiceLength = 1f;
         StopWatch TimeLimiter;
         AudioSource Gays;
         List<AudioClip> gaya;
@@ -29,8 +30,10 @@ namespace FantomLib
         public void PlayGaya()
         {
             gaya = selector.SelectVoiceList(PL1.getLP(), PL2.getLP());
+            AudioClip speak = gaya[Random.Range(0, gaya.Count)];
 
-            actor.SpeakRequest(gaya[Random.Range(0, gaya.Count)]);
+            actor.SpeakRequest(speak);
+            VoiceLength = speak.length;
         }
 
         public void TimerReset()

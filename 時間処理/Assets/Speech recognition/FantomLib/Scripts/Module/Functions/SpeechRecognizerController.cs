@@ -158,6 +158,11 @@ namespace FantomLib
             }
         }
 
+        private void PlayGayaVoice()
+        {
+            gaya.PlayGaya();
+        }
+
         // Update is called once per frame
         //private void Update()
         //{
@@ -213,11 +218,19 @@ namespace FantomLib
         //Receive the result when speech recognition succeed.
         private void ReceiveResult(string message)
         {
+            Invoke("StartRecognizer", 8f);
+
             if (canceled)
+            {
+                PlayGayaVoice();
                 return;
+            }
 
             if (string.IsNullOrEmpty(message))
+            {
+                PlayGayaVoice();
                 return;
+            }
 
             if (OnResult != null)
                 OnResult.Invoke(message.Split('\n'));
@@ -226,11 +239,16 @@ namespace FantomLib
         //Receive the error when speech recognition fail.
         private void ReceiveError(string message)
         {
+            Invoke("StartRecognizer", 8f);
+
             if (message == "ERROR_SPEECH_TIMEOUT")
-                gaya.PlayGaya();
+                PlayGayaVoice();
 
             if (canceled)
+            {
+                PlayGayaVoice();
                 return;
+            }
 
             if (OnError != null)
                 OnError.Invoke(message);
