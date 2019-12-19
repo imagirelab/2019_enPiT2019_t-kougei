@@ -52,6 +52,8 @@ public class VoiceActor : MonoBehaviour
 
     void Speak()
     {
+        isSpeaking = false;
+
         //喋ることがないならなんもしない
         if(queue.Count==0)
         {
