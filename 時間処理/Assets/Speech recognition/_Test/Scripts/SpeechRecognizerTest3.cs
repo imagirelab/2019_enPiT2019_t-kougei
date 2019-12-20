@@ -176,15 +176,190 @@ public class SpeechRecognizerTest3 : MonoBehaviour {
   
         for(int i = 0; i < words.Length; i++)
         {
-            if(words[i].Contains("Player 1"))
+            // 音声認識を使いやすくするための変換
+            if (words[i].Contains("Player 1"))
             {
                 player1Flag = true;
                 str = words[i].Replace("Player 1", "");
             }
-            else if(words[i].Contains("Player 2"))
+            else if (words[i].Contains("Player 2"))
             {
                 player2Flag = true;
                 str = words[i].Replace("Player 2", "");
+            }
+            else if (words[i].Contains("プレイヤー1"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("プレイヤー1", "");
+            }
+            else if (words[i].Contains("プレイヤー2"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("プレイヤー2", "");
+            }
+            else if (words[i].Contains("レイヤー1"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("レイヤー1", "");
+            }
+            else if (words[i].Contains("レイヤー2"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("レイヤー2", "");
+            }
+            else if (words[i].Contains("レイヤ1"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("レイヤ1", "");
+            }
+            else if (words[i].Contains("レイヤ2"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("レイヤ2", "");
+            }
+            else if (words[i].Contains("プレイヤーに"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("レイヤーに", "");
+            }
+            else if (words[i].Contains("部屋に"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("部屋に", "");
+            }
+            else if (words[i].Contains("Player に"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("Player に", "");
+            }
+            else if (words[i].Contains("Player 市"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("Player 市", "");
+            }
+            else if (words[i].Contains("プレイヤー市"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("プレイヤー市", "");
+            }
+            else if (words[i].Contains("プレイヤーズに2000"))
+            {
+                player2Flag = true;
+                str = "1000";
+            }
+            else if (words[i].Contains("プレイヤーズ2000"))
+            {
+                player2Flag = true;
+                str = "1000";
+            }
+            else if (words[i].Contains("プレイヤーズ"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("プレイヤーズ", "");
+            }
+            else if (words[i].Contains("部屋に"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("部屋に", "");
+            }
+            else if (words[i].Contains("Player 番"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("Player 番", "");
+            }
+            else if (words[i].Contains("プレイヤー番"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("プレイヤー番", "");
+            }
+            else if (words[i].Contains("市泉"))
+            {
+                player1Flag = true;
+                str = "5000";
+            }
+            else if (words[i].Contains("アニメ"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("アニメ", "");
+            }
+            else if (words[i].Contains("ミニ"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("ミニ", "");
+            }
+            else if (words[i].Contains("圧"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("圧", "");
+            }
+            else if (words[i].Contains("プレイヤーついに"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("プレイヤーついに", "");
+            }
+            else if (words[i].Contains("クレアチニン"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("クレアチニン", "");
+            }
+            else if (words[i].Contains("Player ワニ"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("Player ワニ", "");
+            }
+            else if (words[i].Contains("Id"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("Id", "");
+            }
+            else if (words[i].Contains("Player アプリ"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("Player アプリ", "");
+            }
+            else if (words[i].Contains("相手に"))
+            {
+                player1Flag = true;
+                str = words[i].Replace("相手に", "");
+            }
+            else if (words[i].Contains("スレイヤーズ"))
+            {
+                player2Flag = true;
+                str = words[i].Replace("スレイヤーズ", "");
+            }
+
+
+            if (str.Contains("耳栓"))
+            {
+                str = "2000";
+            }
+            else if (str.Contains("戦") || str.Contains("宣") || str.Contains("22"))
+            {
+                str = "1000";
+            }
+            else if (str.Contains("参戦") || str.Contains("日本人"))
+            {
+                str = "3000";
+            }
+            else if (str.Contains("四駆") || str.Contains("240") || str.Contains("4線") || str.Contains("温泉"))
+            {
+                str = "4000";
+            }
+            else if (str.Contains("古船") || str.Contains("ニコ生") || str.Contains("御所"))
+            {
+                str = "5000";
+            }
+            else if (str.Contains("6線") || str.Contains("宣"))
+            {
+                str = "6000";
+            }
+            else if (str.Contains("7線") || str.Contains("7船") || str.Contains("73"))
+            {
+                str = "7000";
+            }
+            else if (str.Contains("発展") || str.Contains("埋髪店") || str.Contains("28") || str.Contains("8線"))
+            {
+                str = "8000";
             }
 
             strNumber = Regex.Replace(str, @"[^0-9]", "");

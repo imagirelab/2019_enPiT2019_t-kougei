@@ -18,6 +18,6 @@ public class TitleDirector: MonoBehaviour
 
     void start_game()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene_UshirisTest");
     }
 }

@@ -8,16 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Init.unity
     guid: 6b4d60979049af4449f11d167e8915c7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: e71a1c05e63fff745a4e13e9be87e88c
   - enabled: 1
     path: Assets/Scenes/MainScene_UshirisTest.unity
     guid: c57c0995cc29ca34f84f0a998f6789e8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/KuroMainScene.unity
     guid: b750e7c2fc9e8f74bb04590f559dec33
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainScene 1.unity
     guid: 4cb0b481277c81c42a5671e91c5ca795
   m_configObjects: {}
